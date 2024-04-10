@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<h1>Home</h1>
+
+
+<button
+hx-get="{% url 'index' %}"
+hx-trigger="click"
+hx-target="#message-display"
+>Incriment notification</button>
+
+<div id="message-display">
+    {% include 'partials/message_sent.html' %}
+</div>
+
+
+<div id="notification-count" style="position: fixed; top: 10px; right: 10px; font-size: 20px; background-color: rgb(151, 22, 22); padding: 4px; border-radius: 50%; color: white;">
+    {% include 'partials/notification_counter.html' %}
+</div>
+
+
+{% endblock %}

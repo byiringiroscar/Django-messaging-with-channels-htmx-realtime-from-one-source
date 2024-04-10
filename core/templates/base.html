@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django - htmx </title>
+    <!-- HTMX -->
+    <script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js" defer></script>
+    <script src="https://unpkg.com/htmx.org@1.9.11" integrity="sha384-0gxUXCCR8yv9FM2b+U3FDbsKthCI66oH5IA9fHppQq9DDMHuMauqq1ZHBpJxQ0J0" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.11/dist/ext/ws.js"></script>
+</head>
+<body hx-ext="ws" ws-connect="/ws/notifications/">
+
+    <div class="m-4"  id="main">
+        {% block content %}
+        {% endblock %}
+    </div>
+    
+</body>
+</html>
