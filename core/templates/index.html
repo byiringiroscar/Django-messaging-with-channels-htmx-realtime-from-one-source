@@ -5,7 +5,11 @@
 
 <h1>Send Message Hello to user</h1>
 
-<button>Send Hello to oscar</button>
+<div style="display: flex; flex-direction: column; gap: 10px; align-items: start;">
+    {% for user in users %}
+    <button >Send Hello to {{ user.username }}</button>
+    {% endfor %}
+</div>
 
 
 
