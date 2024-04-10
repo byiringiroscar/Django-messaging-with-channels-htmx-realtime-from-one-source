@@ -1,0 +1,8 @@
+<form
+hx-post="{% url 'index' %}"
+hx-target="#message-sent"
+hx-swap="innerHTML"
+>
+    <input hidden type="text" name="user_id" value="{{ user.id }}">
+    <button type="submit">Send Message to {{ user.username }}</button>
+</form>

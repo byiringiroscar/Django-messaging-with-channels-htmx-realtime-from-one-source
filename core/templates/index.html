@@ -5,12 +5,12 @@
 
 <h1>Send Message Hello to user</h1>
 
+<div id="message-sent">
+</div>
+
 <div style="display: flex; flex-direction: column; gap: 10px; align-items: start;">
     {% for user in users %}
-    <form action="">
-        <input hidden type="text" name="message" value="{{ user.id }}">
-        <button type="submit">Send Message to {{ user.username }}</button>
-    </form>
+    {% include 'partials/form.html' %}
     {% endfor %}
 </div>
 
