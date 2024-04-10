@@ -7,7 +7,10 @@
 
 <div style="display: flex; flex-direction: column; gap: 10px; align-items: start;">
     {% for user in users %}
-    <button >Send Hello to {{ user.username }}</button>
+    <form action="">
+        <input hidden type="text" name="message" value="{{ user.id }}">
+        <button type="submit">Send Message to {{ user.username }}</button>
+    </form>
     {% endfor %}
 </div>
 
