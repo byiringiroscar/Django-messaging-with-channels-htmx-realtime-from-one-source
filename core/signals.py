@@ -9,9 +9,15 @@ from asgiref.sync import async_to_sync
 def user_message_created(sender, instance, created, **kwargs):
     if created:
         channel_layer = get_channel_layer()
+        # Get the user associated with the message
+        user = instance.user
+
+        # Create user-specific channel name
+        channel_name = f"user_{user.id}"
         group_name = 'notification-message'
         event = {
             'type': 'notification_message_func',
             'message_id': instance.id
         }
-        async_to_sync(channel_layer.group_send)(group_name, event)
+        # Send message to the user's channel
+        async_to_sync(channel_layer.group_send)(channel_name, event)
