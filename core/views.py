@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.models import User
 from core.models import UserMessage
 from django.http import HttpResponse
@@ -22,6 +22,9 @@ def index(request):
 
 
 def user_message(request, id):
+    user = request.user
+    if user.id != id:
+        return redirect('index')
     single_user = get_object_or_404(User, pk=id)
     messages = UserMessage.objects.filter(user=single_user)
     context = {
